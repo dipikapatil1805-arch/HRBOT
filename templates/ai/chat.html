@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container- fluid mt-4">
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3>🤖 HRBot AI Assistant</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <input
+                    type="text"
+                    name="question"
+                    class="form-control"
+                    placeholder="Ask HRBot anything..."
+                    required>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary">
+                    Ask
+                </button>
+
+            </form>
+
+            {% if response %}
+                <hr>
+
+                <div class="alert alert-success">
+                    <strong>HRBot:</strong> {{ response }}
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

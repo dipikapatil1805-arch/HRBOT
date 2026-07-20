@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Edit Employee</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Employee ID</label>
+            <input type="text" name="employee_id" class="form-control"
+                   value="{{ employee.employee_id }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>First Name</label>
+            <input type="text" name="first_name" class="form-control"
+                   value="{{ employee.first_name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Last Name</label>
+            <input type="text" name="last_name" class="form-control"
+                   value="{{ employee.last_name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control"
+                   value="{{ employee.email }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Phone</label>
+            <input type="text" name="phone" class="form-control"
+                   value="{{ employee.phone }}">
+        </div>
+
+        <div class="mb-3">
+            <label>Department</label>
+            <input type="text" name="department" class="form-control"
+                   value="{{ employee.department }}">
+        </div>
+
+        <div class="mb-3">
+            <label>Designation</label>
+            <input type="text" name="designation" class="form-control"
+                   value="{{ employee.designation }}">
+        </div>
+
+        <div class="mb-3">
+            <label>Salary</label>
+            <input type="number" name="salary" class="form-control"
+                   value="{{ employee.salary }}">
+        </div>
+
+        <div class="mb-3">
+            <label>Joining Date</label>
+            <input type="date" name="joining_date" class="form-control"
+                   value="{{ employee.joining_date }}">
+        </div>
+
+        <button class="btn btn-primary">
+            Update Employee
+        </button>
+
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

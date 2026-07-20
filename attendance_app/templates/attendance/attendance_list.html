@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Attendance Management</h2>
+
+        <a href="/attendance/add/" class="btn btn-primary">
+            Add Attendance
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Employee ID</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for record in records %}
+
+        <tr>
+
+            <td>{{ record.employee_id }}</td>
+
+            <td>{{ record.date }}</td>
+
+            <td>
+                {% if record.status == "Present" %}
+                    <span class="badge bg-success">Present</span>
+                {% else %}
+                    <span class="badge bg-danger">Absent</span>
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="/attendance/delete/{{ record.employee_id }}/"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Delete attendance?')">
+                    Delete
+                </a>
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="4" class="text-center">
+                No Attendance Records Found
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

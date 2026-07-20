@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Add Attendance</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Employee ID</label>
+            <input
+                type="text"
+                name="employee_id"
+                class="form-control"
+                placeholder="Enter Employee ID"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label>Date</label>
+            <input
+                type="date"
+                name="date"
+                class="form-control"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label>Status</label>
+
+            <select
+                name="status"
+                class="form-control"
+                required
+            >
+                <option value="">Select Status</option>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+
+        </div>
+
+        <button class="btn btn-success">
+            Save Attendance
+        </button>
+
+        <a href="/attendance/" class="btn btn-secondary">
+            Back
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

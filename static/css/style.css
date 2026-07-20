@@ -1,0 +1,295 @@
+@import url("sidebar.css");
+@import url("navbar.css");
+@import url("dashboard.css");
+@import url("cards.css");
+@import url("tables.css");
+@import url("forms.css");
+@import url("buttons.css");
+
+/* ===============================
+   Global
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+    --primary:#6366F1;
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --dark:#111827;
+
+    --text:#1F2937;
+
+    --light:#6B7280;
+
+    --bg:#F5F7FB;
+
+    --white:#ffffff;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+/* ===============================
+   Layout
+================================ */
+
+.wrapper{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+.main-content{
+
+    margin-left:280px;
+
+    width:calc(100% - 280px);
+
+    padding:30px;
+
+    transition:.3s;
+
+}
+
+.page-content{
+
+    margin-top:25px;
+
+}
+
+/* ===============================
+   Cards
+================================ */
+
+.card{
+
+    border:none;
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* ===============================
+   Buttons
+================================ */
+
+.btn{
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    padding:10px 20px;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#5458E8;
+
+}
+
+.btn-success{
+
+    background:var(--success);
+
+    border:none;
+
+}
+
+.btn-warning{
+
+    color:white;
+
+}
+
+.btn-danger{
+
+    border:none;
+
+}
+
+/* ===============================
+   Tables
+================================ */
+
+.table{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    margin-bottom:0;
+
+}
+
+.table thead{
+
+    background:#F3F4F6;
+
+    color:#374151;
+
+}
+
+.table th{
+
+    font-weight:600;
+
+    border:none;
+
+}
+
+.table td{
+
+    border:none;
+
+    vertical-align:middle;
+
+}
+
+.table tbody tr{
+
+    transition:.2s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#F9FAFB;
+
+}
+
+/* ===============================
+   Forms
+================================ */
+
+.form-control,
+
+.form-select{
+
+    border-radius:14px;
+
+    border:1px solid #E5E7EB;
+
+    padding:12px 15px;
+
+}
+
+.form-control:focus,
+
+.form-select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .2rem rgba(99,102,241,.15);
+
+}
+
+/* ===============================
+   Badges
+================================ */
+
+.badge{
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-weight:500;
+
+}
+
+/* ===============================
+   Images
+================================ */
+
+img{
+
+    max-width:100%;
+
+}
+
+/* ===============================
+   Scrollbar
+================================ */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media(max-width:992px){
+
+.main-content{
+
+    margin-left:0;
+
+    width:100%;
+
+    padding:18px;
+
+}
+
+}

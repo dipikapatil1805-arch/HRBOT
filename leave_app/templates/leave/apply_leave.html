@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Apply Leave</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Employee ID</label>
+            <input type="text" name="employee_id" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Leave Type</label>
+            <select name="leave_type" class="form-control" required>
+                <option value="">Select Leave Type</option>
+                <option value="Casual Leave">Casual Leave</option>
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Paid Leave">Paid Leave</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>From Date</label>
+            <input type="date" name="from_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>To Date</label>
+            <input type="date" name="to_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Reason</label>
+            <textarea name="reason" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Submit Leave
+        </button>
+
+        <a href="/leave/" class="btn btn-secondary">
+            Back
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

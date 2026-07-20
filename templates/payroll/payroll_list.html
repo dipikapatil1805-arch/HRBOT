@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Payroll List</h2>
+
+        <a href="{% url 'add_payroll' %}" class="btn btn-primary">
+            + Add Payroll
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Basic Salary</th>
+                <th>Bonus</th>
+                <th>Deduction</th>
+                <th>Net Salary</th>
+                <th>Month</th>
+                <th width="180">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for payroll in payrolls %}
+
+        <tr>
+            <td>{{ payroll.emp_id }}</td>
+            <td>{{ payroll.emp_name }}</td>
+            <td>{{ payroll.basic_salary }}</td>
+            <td>{{ payroll.bonus }}</td>
+            <td>{{ payroll.deduction }}</td>
+            <td>{{ payroll.net_salary }}</td>
+            <td>{{ payroll.month }}</td>
+
+            <td>
+                <a href="{% url 'edit_payroll' payroll.id %}" class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
+                <a href="{% url 'delete_payroll' payroll.id %}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Delete this payroll?');">
+                    Delete
+                </a>
+            </td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="8" class="text-center">
+                No payroll records found.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

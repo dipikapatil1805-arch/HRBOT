@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+                <h2>👋 Welcome Back, HR Admin</h2>
+                <p>Manage your employees, attendance, payroll and leave requests from one intelligent dashboard.</p>
+            </div>
+
+            <div class="col-lg-4 text-end">
+                <h3>{% now "d M Y" %}</h3>
+                <small>HRBOT • Human Resource Management System</small>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <a href="/employees/" style="text-decoration:none;color:inherit;">
+                <div class="stats-card bg-green">
+                    <i class="bi bi-person-plus-fill"></i>
+                    <h5>Total Employees</h5>
+                    <h2>{{ total_employees }}</h2>
+                    <small>Registered Employees</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3 ">
+            <a href="/attendance/" style="text-decoration:none;color:inherit;">
+                <div class="stats-card bg-blue">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    <h5>Attendance</h5>
+                    <h2>{{ total_attendance }}</h2>
+                    <small>Attendance Records</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <a href="/leave/" style="text-decoration:none;color:inherit;">
+                <div class="stats-card bg-orange">
+                    <i class="bi bi-airplane-fill"></i>
+                    <h5>Pending Leave</h5>
+                    <h2>{{ pending_leaves }}</h2>
+                    <small>Waiting Approval</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <a href="/payroll/" style="text-decoration:none;color:inherit;">
+                <div class="stats-card bg-red">
+                    <i class="bi bi-cash-stack"></i>
+                    <h5>Payroll</h5>
+                    <h2>{{ total_payroll }}</h2>
+                    <small>Payroll Records</small>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Second Row -->
+    <div class="row g-4">
+
+        <!-- Quick Actions -->
+        <div class="col-lg-8">
+
+            <div class="chart-card">
+
+                <h4 class="mb-4">⚡ Quick Actions</h4>
+
+                <div class="row g-3">
+
+                    <div class="col-lg-3 col-md-6">
+                        <a href="/employees/add/" class="quick-btn quick-green">
+                            <i class="bi bi-person-plus-fill"></i>
+                            <span>Add Employee</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <a href="/attendance/" class="quick-btn quick-blue">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <a href="/leave/apply/" class="quick-btn quick-orange">
+                            <i class="bi bi-airplane-fill"></i>
+                            <span>Apply Leave</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <a href="/payroll/" class="quick-btn quick-red">
+                            <i class="bi bi-cash-stack"></i>
+                            <span>payroll</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- AI Insights -->
+        <div class="col-lg-4">
+
+            <div class="chart-card">
+
+                <h4>🤖 AI Insights</h4>
+
+                <hr>
+
+                <p>👥 Total Employees :
+                    <strong>{{ total_employees }}</strong>
+                </p>
+
+                <p>📅 Attendance Records :
+                    <strong>{{ total_attendance }}</strong>
+                </p>
+
+                <p>🌴 Pending Leave Requests :
+                    <strong>{{ pending_leaves }}</strong>
+                </p>
+
+                <p>💰 Payroll Records :
+                    <strong>{{ total_payroll }}</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Third Row -->
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="chart-card">
+
+                <h4>📊 HR Analytics</h4>
+
+                <hr>
+
+                <canvas id="dashboardChart" height="100"></canvas>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="chart-card">
+
+                <h4>📢 Recent Activities</h4>
+
+                <hr>
+
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+                        👥 Total Employees : {{ total_employees }}
+                    </li>
+
+                    <li class="list-group-item">
+                        📅 Attendance Records : {{ total_attendance }}
+                    </li>
+
+                    <li class="list-group-item">
+                        🌴 Pending Leaves : {{ pending_leaves }}
+                    </li>
+
+                    <li class="list-group-item">
+                        💰 Payroll Records : {{ total_payroll }}
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx = document.getElementById('dashboardChart');
+
+new Chart(ctx, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            'Employees',
+            'Attendance',
+            'Leave',
+            'Payroll'
+        ],
+
+        datasets: [{
+
+            label: 'HRBOT Statistics',
+
+            data: [
+                {{ total_employees }},
+                {{ total_attendance }},
+                {{ pending_leaves }},
+                {{ total_payroll }}
+            ]
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+                display: false
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

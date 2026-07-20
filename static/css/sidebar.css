@@ -1,0 +1,242 @@
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+
+    position:fixed;
+    left:0;
+    top:0;
+    width:280px;
+    height:100vh;
+
+    background:#111827;
+
+    color:#fff;
+
+    padding:30px 22px;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow-y:auto;
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+}
+
+/* Logo */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:35px;
+
+}
+
+.logo-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:18px;
+
+    background:#6366F1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+}
+
+.logo h3{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.logo p{
+
+    margin:0;
+
+    color:#9CA3AF;
+
+    font-size:13px;
+
+}
+
+/* Section Title */
+
+.menu-title{
+
+    color:#6B7280;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin:25px 0 12px;
+
+    text-transform:uppercase;
+
+}
+
+/* Menu */
+
+.menu{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.menu li{
+
+    margin-bottom:8px;
+
+}
+
+.menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#D1D5DB;
+
+    text-decoration:none;
+
+    padding:14px 16px;
+
+    border-radius:16px;
+
+    transition:.25s;
+
+    font-weight:500;
+
+}
+
+.menu a i{
+
+    font-size:20px;
+
+    width:24px;
+
+}
+
+/* Hover */
+
+.menu a:hover{
+
+    background:#1F2937;
+
+    color:white;
+
+    transform:translateX(6px);
+
+}
+
+/* Active */
+
+.menu .active a,
+
+.menu li.active a{
+
+    background:#6366F1;
+
+    color:white;
+
+    box-shadow:0 10px 25px rgba(99,102,241,.35);
+
+}
+
+/* User Card */
+
+.user-card{
+
+    margin-top:auto;
+
+    background:#1F2937;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.user-card img{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+}
+
+.user-card strong{
+
+    display:block;
+
+}
+
+.user-card small{
+
+    color:#9CA3AF;
+
+}
+
+/* Scrollbar */
+
+.sidebar::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#374151;
+
+    border-radius:10px;
+
+}
+
+/* Mobile */
+
+@media(max-width:992px){
+
+.sidebar{
+
+    width:240px;
+
+}
+
+}

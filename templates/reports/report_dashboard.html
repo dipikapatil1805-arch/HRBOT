@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>
+            <i class="bi bi-bar-chart-fill"></i>
+            Reports Dashboard
+        </h2>
+
+        <div>
+            <a href="{% url 'export_pdf' %}" class="btn btn-danger me-2">
+                <i class="bi bi-file-earmark-pdf"></i>
+                Export PDF
+            </a>
+
+            <a href="{% url 'export_excel' %}" class="btn btn-success">
+                <i class="bi bi-file-earmark-excel"></i>
+                Export Excel
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Employees -->
+        <div class="col-md-3">
+            <a href="{% url 'employee_list' %}"class="text-decoration-none">
+                <div class="card shadow border-0 bg-primary text-white h-100">
+                    <div class="card-body">
+                        <h5>Total Employees</h5>
+                        <h2>{{ total_employees }}</h2>
+                        <i class="bi bi-people-fill fs-1 float-end"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Attendance -->
+        <div class="col-md-3">
+            <a href="/attendance/" class="text-decoration-none">
+                <div class="card shadow border-0 bg-success text-white h-100">
+                    <div class="card-body">
+                        <h5>Attendance</h5>
+                        <h2>{{ total_attendance }}</h2>
+                        <i class="bi bi-calendar-check fs-1 float-end"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Leave -->
+        <div class="col-md-3">
+            <a href="/leave/" class="text-decoration-none">
+                <div class="card shadow border-0 bg-warning text-dark h-100">
+                    <div class="card-body">
+                        <h5>Leave Requests</h5>
+                        <h2>{{ total_leave }}</h2>
+                        <i class="bi bi-airplane fs-1 float-end"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Payroll -->
+        <div class="col-md-3">
+            <a href="/payroll/" class="text-decoration-none">
+                <div class="card shadow border-0 bg-danger text-white h-100">
+                    <div class="card-body">
+                        <h5>Payroll Records</h5>
+                        <h2>{{ total_payroll }}</h2>
+                        <i class="bi bi-cash-stack fs-1 float-end"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    Attendance Overview
+                </div>
+
+                <div class="card-body">
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    HR Statistics
+                </div>
+
+                <div class="card-body">
+                    <canvas id="payrollChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+new Chart(document.getElementById("attendanceChart"), {
+    type: 'bar',
+    data: {
+        labels: ["Attendance","Leave"],
+        datasets: [{
+            label: "Records",
+            data: [{{ total_attendance }}, {{ total_leave }}]
+        }]
+    }
+});
+
+new Chart(document.getElementById("payrollChart"), {
+    type: 'pie',
+    data: {
+        labels: ["Employees","Payroll"],
+        datasets: [{
+            data: [{{ total_employees }}, {{ total_payroll }}]
+        }]
+    }
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,295 @@
+/* ================================
+   Dashboard
+==============*/
+/* ================================
+   Welcome Banner
+================================ */
+
+.welcome-banner{
+    background:oklab(70.519% -0.13627 0.04028);
+    border-radius:18px;
+    padding:12px 24px;
+    min-height:75px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:12px;
+}
+
+.welcome-banner h1{
+    font-size:20px;
+    font-weight:700;
+    color:#14532d;
+    margin-bottom:10px;
+}
+
+.welcome-banner p{
+    font-size:14px;
+    color:#166534;
+    line-height:1.4;
+    max-width:650px;
+    margin:0;
+}
+
+.welcome-banner h3{
+    font-size:18px;
+    color:#14532d;
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+.welcome-banner small{
+    font-size:13px;
+    color:#166534;
+}
+
+/* ================================
+   Statistics Cards
+================================ */
+.stats-card{
+    background:#fff;
+    border-radius:18px;
+    padding:12px 16px;
+    min-height:105px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+    transition:.3s;
+}
+
+.stats-card:hover{
+    transform:translateY(-5px);
+}
+
+.stats-card h5{
+    font-size:15px;
+    margin:5px 0;
+    font-weight: 600;
+}
+
+.stats-card h2{
+    font-size:26px;
+    font-weight:700;
+    margin: 2px 0;
+}
+
+.stats-card small{
+
+    font-size:11px;
+    color:#6b7280;
+}
+
+.stats-card i{
+    font-size:28px;
+    margin-bottom:6px ;
+    
+}
+
+/* Colored Left Border */
+
+.bg-blue{
+    border-left:6px solid #3b82f6;
+}
+
+.bg-green{
+    border-left:6px solid #10b981;
+}
+
+.bg-orange{
+    border-left:6px solid #f59e0b;
+}
+
+.bg-red{
+    border-left:6px solid #ef4444;
+}
+
+/* ================================
+   Cards
+================================ */
+
+.chart-card{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    height:100%;
+}
+
+.chart-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.chart-card h4{
+
+    font-weight:600;
+
+    color:#111827;
+    font-size:18px;
+    margin-bottom:20px;
+
+}
+
+/* ================================
+   Quick Action Buttons
+================================ */
+.quick-btn{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    height:85px;
+    border-radius:12px;
+
+    color:#fff;
+    text-decoration:none;
+
+    font-weight:600;
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.quick-btn i{
+
+    font-size:26px;
+    margin-bottom:4px;
+
+}
+
+.quick-btn:hover{
+
+    transform:translateY(-5px);
+    color:#fff;
+
+}
+
+.quick-green{
+    background:#10b981;
+}
+
+.quick-blue{
+    background:#3b82f6;
+}
+
+.quick-orange{
+    background:#f59e0b;
+}
+
+.quick-red{
+    background:#ef4444;
+}
+
+/* ================================
+   Table
+================================ */
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.table thead{
+
+    background:#f8fafc;
+
+}
+
+.table th{
+
+    color:#374151;
+
+    font-weight:600;
+
+}
+
+.table td{
+
+    vertical-align:middle;
+
+}
+
+/* ================================
+   Badges
+================================ */
+
+.badge{
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media(max-width:992px){
+
+.dashboard-title{
+
+    font-size:28px;
+
+}
+
+.stats-card{
+
+    margin-bottom:20px;
+
+}
+
+.welcome-banner{
+
+    padding:25px;
+
+}
+
+}
+
+@media(max-width:1366px){
+
+.dashboard-title{
+
+    font-size:24px;
+
+}
+
+.stats-card h2{
+
+    font-size:30px;
+
+}
+}
+.row.g-4{
+    --bs-gutter-x:12px;
+    --bs-gutter-y:10px;
+    margin-bottom:10px;
+
+}
+
+.container-fluid{
+
+    padding:10px,16px;
+
+}
+/* ===== Compact Dashboard ===== */
+
+.container-fluid{
+    max-width: 1450px;
+    margin: auto;
+}
+

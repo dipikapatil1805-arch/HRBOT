@@ -1,0 +1,116 @@
+<div class="sidebar">
+
+    <!-- Logo -->
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            <i class="bi bi-robot"></i>
+        </div>
+
+        <div>
+            <h3>HRBOT</h3>
+            <p>Human Resource System</p>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+
+    <div class="menu-title">
+        MAIN MENU
+    </div>
+
+    <ul class="menu">
+
+        <li class="active">
+            <a href="/">
+                <i class="bi bi-grid-fill"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/employees/">
+                <i class="bi bi-people-fill"></i>
+                <span>Employees</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/attendance/">
+                <i class="bi bi-calendar-check-fill"></i>
+                <span>Attendance</span>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="menu-title">
+        HR MANAGEMENT
+    </div>
+
+    <ul class="menu">
+
+        <li>
+            <a href="/leave/">
+                <i class="bi bi-airplane-fill"></i>
+                <span>Leave</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'payroll_list' %}">
+                <i class="bi bi-cash-stack"></i>
+                <span>Payroll</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'report_dashboard' %}">
+                <i class="bi bi-bar-chart-fill"></i>
+                <span>Reports</span>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="menu-title">
+        TOOLS
+    </div>
+
+    <ul class="menu">
+
+        <li>
+            <a href="{% url 'ai_chat' %}">
+                <i class="bi bi-stars"></i>
+                <span>AI Assistant</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'settings_page' %}">
+                <i class="bi bi-sliders"></i>
+                <span>Settings</span>
+            </a>
+        </li>
+
+    </ul>
+
+    <!-- User Card -->
+
+    <div class="user-card">
+
+        <img src="https://ui-avatars.com/api/?background=6366F1&color=fff&name=HR" alt="Admin">
+
+        <div>
+
+            <strong>HR Admin</strong>
+
+            <small>Administrator</small>
+
+        </div>
+
+    </div>
+
+</div>
