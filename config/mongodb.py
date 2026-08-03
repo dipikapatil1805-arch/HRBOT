@@ -2,7 +2,7 @@ import os
 from pymongo import MongoClient
 
 client = MongoClient(
-    "mongodb+srv://dipikapatil1805_db_user:HRBOT@123@cluster0.qbn1m7r.mongodb.net/hrbot?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://dipikapatil1805_db_user:HRBOT123@cluster0.qbn1m7r.mongodb.net/hrbot?retryWrites=true&w=majority&appName=Cluster0"
 )
 db = client["hrbot"]
 
